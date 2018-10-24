@@ -1,0 +1,4 @@
+export SDK_BASE=~/esp-open-sdk
+export XTENSA_TOOLS_ROOT=~/esp-open-sdk/xtensa-lx106-elf/xtensa-lx106-elf/bin/
+export PATH=$PATH:$XTENSA_TOOLS_ROOT
+

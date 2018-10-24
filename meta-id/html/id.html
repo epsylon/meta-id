@@ -1,0 +1,43 @@
+<div id="notification" hidden></div><div id="spinner" hidden></div>
+
+<p class="headerlogo2"><a href="welcome.html" target="_self">META</a></p>
+<p><span class="menuwelcome">ID</span><br>
+<div class="config">
+<div id="state--1" hidden><button class="submitboxtext2" id="loginbox">login</button></div>
+<div id="state-0" hidden><form id="passform" class="pure-form">
+<p><br>
+Enter your personal password here to access wifi configuration
+<p><input class="loginbox" type="password" name="passwd" id="passwd"/></p>
+<input type="submit" class="submitboxtext2" value="submit"/>
+<div id="loginnotification" hidden></div>
+</form>  
+</div>
+<div id="state-1" hidden>login success</div>
+<div id="state-2" hidden><a href="/wifi.html"><i>wifi configuration</i></a> | <a href="/logout"><i>Logout</i></a></div>
+<div id="state-3" hidden>connecting</div>
+<div id="state-4" hidden>connected <a href="/wifi.html"><i>configuration</i></a> | <a href="/logout"><i>Logout</i></a></div>
+</div>
+
+<!--<div id="loginform">
+<h2 style="color:red">this SETS the user password !!</h2>
+<form action="/meta/userpass" id="passform" class="pure-form">
+<p><br>
+This sections refers to the connection of your edition to the network.<p>
+For accessing here please type your personal password.
+<p><input class="loginbox"type="password" name="passwd" id="passwd"/></p>
+<p>
+<input type="submit"  class="submitboxtext2"/>
+</p></form>  
+</div>-->
+
+
+<script type="text/javascript">
+onLoad(function() {
+  bnd($("#passform"), "submit", submitPass);
+  bnd($("#loginbox"), "click", function(e){stateMachine('{"state":0,"msg":"login"}')});
+  fetchMeta();
+  ajaxReq('GET', "/meta/state", stateMachine);
+});
+</script>
+</body>
+</html>

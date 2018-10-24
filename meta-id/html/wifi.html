@@ -1,0 +1,147 @@
+<p class="headerlogo2"><a href="/" target="_self">META</a></p>
+<span class="menuwelcome">WiFi</span><br>
+    <div class="content">
+      <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-1-2"><div class="card">
+          <h1><a href="#" id="wifi-state">WiFi State</a></h1>
+           <div id="statediv" hidden>
+         <table id="wifi-table" class="pure-table pure-table-horizontal" ><tbody>
+          <!--<tr><td>WiFi mode</td><td id="wifi-mode"></td></tr>-->
+          <tr><td>WiFi channel</td><td id="wifi-chan"></td></tr>
+          <tr><td>Configured network</td><td id="wifi-ssid"></td></tr>
+          <tr><td>WiFi status</td><td id="wifi-status"></td></tr>
+          <tr><td>WiFi address</td><td id="wifi-ip"></td></tr>
+          <tr><td>WiFi rssi</td><td id="wifi-rssi"></td></tr>
+          <tr><td>WiFi phy</td><td id="wifi-phy"></td></tr>
+          <tr><td>WiFi MAC</td><td id="wifi-mac"></td></tr>
+          <!--<tr><td colspan="2" id="wifi-warn"></td></tr>-->
+          </tbody> </table>
+        </div> </div>
+        
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2"><div class="card">
+          <h1><a href="#" id="wifi-config">WiFi Configuration</a></h1>
+          <div id="wifidiv" hidden>
+			<div id="notification" hidden></div><div id="spinner" hidden></div>
+          <p id="reconnect" style="color: #600" hidden></p>
+          <form action="#" id="wifiform" class="pure-form pure-form-stacked" >
+            <legend>To connect to a WiFi network, please select one of the detected networks,
+               enter the password, and hit the connect button...</legend>
+            <button id="scan-button" type="submit" class="pure-button button-primary">Scan!</button>
+            <label>Network SSID</label>
+            <div id="aps">Scanning... <div class="spinner"></div></div>
+            <label for="opt-hiddenssid">
+              <input type="radio" name="essid" value="_hidden_ssid_" id="opt-hiddenssid">
+              <input type="text" id="hidden-ssid" value="" style="width:auto; display:inline-block; margin-left: 0.7em">
+            </label>
+            <label>WiFi password, if applicable:</label>
+            <input id="wifi-passwd" type="password" name="passwd" placeholder="password">
+            <button id="connect-button" type="submit" class="pure-button button-primary">Connect!</button>
+          </form>
+          <form action="#" id="specform" class="pure-form" >
+            <legend>Special settings, use with care!</legend>
+            <div class="form-horizontal">
+              <label for="dhcp-ron" style="margin-right:1em">
+                <input type="radio" name="dhcp" value="on" id="dhcp-ron"/>
+                DHCP</label>
+              <label for="dhcp-roff">
+                <input type="radio" name="dhcp" value="off" id="dhcp-roff"/>
+                Static IP</label>
+            </div>
+            <div id="dhcp-on" class="pure-form-stacked"></div>
+            <div id="dhcp-off" class="pure-form-stacked">
+              <label>Static IP address</label>
+              <input id="wifi-staticip" type="text" name="staticip"/>
+              <label>Netmask (for static IP)</label>
+              <input id="wifi-netmask" type="text" name="netmask"/>
+              <label>Gateway (for static IP)</label>
+              <input id="wifi-gateway" type="text" name="gateway"/>
+            </div>
+            <button id="special-button" type="submit" class="pure-button button-primary">Change!</button>
+          </form>
+		<br/><br/>
+        </div></div>
+        <div class="pure-u-1 pure-u-md-1-2"><div class="card">
+          <h1><a href="#" id="wifi-send">Send a message</a></h1>
+          <div id="senddiv" hidden>
+            <legend>Send data to server</legend>
+          <div class="card">
+            <form action="#" id="mqtt-form" class="pure-form" >
+              <div>
+                <input type="checkbox" name="mqtt-enable"/>
+                <label>Enable MQTT client</label>
+              </div>
+              <div>
+                <label>MQTT client state: </label>
+                <b id="mqtt-state"></b>
+              </div>
+              <br>
+              <button id="mqtt-button" type="submit" class="pure-button button-primary">
+                Update server settings!
+              </button>
+            </form>
+          </div>
+            <div class="form-horizontal">
+
+            <form action="#" id="mqtt-status-form" class="pure-form" >
+              <div class="form-horizontal">
+                <input type="checkbox" name="mqtt-status-enable"/>
+                <label>Enable status reporting via MQTT</label>
+              </div>
+              <br>
+              <div class="pure-form-stacked">
+                <label>Status topic</label>
+                <input type="text" name="mqtt-status-topic"/>
+                Message: <tt id="mqtt-status-value"></tt>
+                <div class="popup">MQTT topic to which status message is sent</div>
+              </div>
+              <button id="mqtt-status-button" type="submit" class="pure-button button-primary">
+                Update status settings!
+              </button>
+            </form>
+          </div>
+          <div class="card">
+            <form action="#" id="mqtt-test-form" class="pure-form" >
+              <div class="form-horizontal">
+                <input name="mqtt-test"/>
+                <label>Enable status reporting via MQTT</label>
+              </div>
+              <br>
+              <button id="mqtt-test-button" type="submit" class="pure-button button-primary">
+                Send !
+              </button>
+            </form>
+          </div>
+          </div>
+          </div>
+        <div class="pure-u-1 pure-u-md-1-2"><div class="card">
+          <h1><a href="/init.html" id="reset-pass">Reset Password</a></h1>
+        </div></div>
+        <div class="pure-u-1 pure-u-md-1-2"><div class="card">
+          <h1><a href="/logout">Logout</a>
+        </div></div>
+      </div>
+    </div>
+
+<script src="wifiSta.js"></script>
+<script type="text/javascript">
+onLoad(function() {
+  getWifiInfo();
+  fetchMqtt();
+  bnd($("#wifi-state"), "click", function(e){toggle("statediv")});
+  bnd($("#wifi-config"), "click", function(e){toggle("wifidiv")});
+  bnd($("#wifi-send"), "click", function(e){toggle("senddiv")});
+  bnd($("#wifiform"), "submit", changeWifiAp);
+  bnd($("#specform"), "submit", changeSpecial);
+  bnd($("#dhcp-ron"), "click", doDhcp);
+  bnd($("#dhcp-roff"), "click", doStatic);
+//  bnd($("#sendform"), "submit", sendServer);
+  bnd($("#scan-button"), "click", scanAPs);
+  bnd($("#mqtt-form"), "submit", changeMqtt);
+  bnd($("#mqtt-test-form"), "submit", changeMqttTest);
+  bnd($("#mqtt-status-form"), "submit", changeMqttStatus);
+
+  scanTimeout = window.setTimeout(scanAPs, 500);
+});
+</script>
+</body></html>

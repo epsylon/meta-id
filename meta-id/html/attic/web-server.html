@@ -1,0 +1,59 @@
+<div id=menu>
+	<ul>
+		<li>Upload</li>
+		<li><a href="/meta.html">Meta</a></li>
+		<li><a href="text/text.html">Text</a></li>
+		<li><a href="/wifi/wifiSta.html">Wifi Client</a></li>
+		<li><a href="/wifi/wifiAp.html">Wifi AP</a></li>
+	</ul>
+</div>
+<div class="square-box">
+<div class="square-content">  <div id="main">
+    <div class="header">
+      <h1>Web Server</h1>
+    </div>
+
+    <div class="content">
+      <p>User defined web pages can be uploaded to meta-id. This is useful if meta-id acts as a web server while MCU provides
+        the measurement data.</p>
+
+      <form method="post" action="web-server/upload" name="submit" enctype="multipart/form-data" onSubmit="return onSubmit()">
+        The custom web page to upload: <input type="file" name="webpage" multiple>
+        <input type="submit" name="submit" value="Submit">
+      </form>
+    <div id="fs">
+      </div>
+	<br/><br/>
+    </div>
+    
+  </div>
+  
+  <script>
+   var allowSubmit = true;
+
+	function displayList(data){
+	var tmp = false;
+    el = $("#fs");
+	el.innerHTML+="<h2>files on espfs</h2>";
+  Object.keys(data).forEach(function (v) {
+    if (el != null) {
+		if(tmp){
+			el.innerHTML+="<a href='"+data[v]+"'>"+tmp+"</a><br/>";
+			tmp=false;
+		}
+		else{
+			tmp=data[v];
+		}
+	}});
+	}
+	onLoad(function (){
+		  ajaxJson("GET", "/web-server/list", displayList);
+	});
+   function onSubmit() {
+      setTimeout(function() {
+                    window.location.reload();
+                 }, 1000);
+      return true;
+   }
+</script>
+</body></html>

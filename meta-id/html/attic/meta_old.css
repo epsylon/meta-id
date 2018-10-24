@@ -1,0 +1,228 @@
+/* All fonts */
+html, button, input, select, textarea, .pure-g [class *= "pure-u"] {
+  font-family: sans-serif;
+}
+
+input[type="text"], input[type="password"], textarea {
+  width: 100%;
+}
+
+.square-box { 
+    position: relative;
+	width:50%;
+	overflow:hidden;
+	margin:auto;
+  }
+
+.square-box:before { 
+	content:"";
+	display:block;
+	padding-top:100%;
+}
+
+.square-content{
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+    border: 5px solid black;
+    width: 90%;
+    margin-left:5%;
+    margin-top:5%;
+	text-align:center;
+	max-height:90%;
+	overflow-y:scroll;
+}
+
+div#menu {
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Safari */
+    transform: rotate(-90deg);
+	transform-origin: top right;
+    text-align:right;
+	top:0px;
+	width:1024px;
+	left:-1024px;
+	border-bottom:4px solid grey;
+	position:absolute;
+	padding:4px
+}
+
+div.layout{
+	margin-left:25%;
+	margin-right:25%;
+	min-height:1024px;
+	font-family:sans-serif;
+	font-weight:100%;
+}
+
+div.box{
+	height:50%;
+	margin-top:25%;
+	min-height:512px;
+	background-color:white;
+}
+DIV.container {
+    min-height: 10em;
+    display: table-cell;
+    vertical-align: middle 
+S}
+
+div#menu ul li a{
+	text-decoration:none;
+}
+
+div#menu ul li a:after{
+	content:" | ";
+}
+
+div#menu ul li{
+	text-transform:capitalize;
+	font-weight:bold;
+	font-size:x-large;
+	padding: 4px;
+    background-color: #fff;
+}
+
+li {
+    display: inline;
+    float: right;
+}
+
+
+a.greybg {
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
+}
+.square {
+    border: 5px solid black;
+    position: relative;
+    text-align: center;
+}
+.sixty {
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 20%;
+}
+.fifty {
+    width: 50%;
+    margin-left: 20%;
+    margin-top: 20%;
+	border:4px solid black;
+}
+
+
+/*===== spinners and notification messages */
+
+#messages {
+  position: absolute;
+  left: 25%;
+  width: 50%;
+  top: 10;
+  z-index: 200;
+  font-size: 110%;
+  text-align: center;
+}
+#warning {
+  background-color: #933;
+  color: #fcc;
+  padding: 0.1em 0.4em;
+}
+#notification {
+  background-color: #693;
+  color: #cfc;
+  padding: 0.1em 0.4em;
+}
+
+#spinner {
+  position: absolute;
+  right: 10%;
+  top: 20;
+  z-index: 1000;
+}
+.spinner {
+  height: 50px;
+  width: 50px;
+  -webkit-animation: vibration 1s infinite linear;
+  animation: vibration 1s infinite linear;
+  border-left: 10px solid rgba(204, 51, 0, 0.15);
+  border-right: 10px solid rgba(204, 51, 0, 0.15);
+  border-bottom: 10px solid rgba(204, 51, 0, 0.15);
+  border-top: 10px solid rgba(204, 51, 0, 0.8);
+  border-radius: 100%;
+}
+.spinner-small {
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  border-width: 4px;
+}
+
+@-webkit-keyframes vibration {
+  from {
+    -webkit-transform: height:110%;
+  }
+  to {
+    -webkit-transform: height:100%;
+  }
+}
+
+
+@keyframes vibration {
+  from {
+    -webkit-transform: height:110%;
+    transform: height:110%;
+  }
+  to {
+    -webkit-transform: height:100%;
+    transform: height:100%;
+  }
+}
+
+@keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+table{
+	margin:auto;
+}
+
+/* wifi AP selection form */
+#aps label div {
+  margin: 0em 0.2em;
+}
+fieldset.radios {
+  border: none;
+  padding-left: 0px;
+}
+fieldset fields {
+  clear: both;
+}
+#pin-mux input {
+  display: block;
+  margin-top: 0.4em;
+  float: left;
+}
+#pin-mux label {
+  display: block;
+  margin: 0em 0.2em 0em 1em;
+  width: 90%;
+}
+
+.lock-icon {
+  background-image: url("/wifi/icons.png");
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+}
+
+

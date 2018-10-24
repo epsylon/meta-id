@@ -1,0 +1,32 @@
+<p class="headerlogo2">META</p>
+<p><span class="menuwelcome"><a href="about.html" target="_self">ABOUT</a></span><br>
+   <span class="menuwelcome"><a href="id.html" target="_self">ID</a></span><br>
+<span class="menuwelcome"><a href="texts.html" target="_self">TEXT</a></span>
+<p>
+<p>
+<br>
+</p>
+<span p class="black200percent">Your password for administration purposes
+is set and you are now connected to META-ID.</span>
+
+<p>
+<br>
+</p>
+<div id="ledcontrol"> 
+
+<!--<label class="container"> <input type="checkbox" id="meta-gpio-05"  class="container"><span p class="mediumbold">LED on/off</span></input> <span class="checkmark"></span>-->
+<label class="container"> <input type="checkbox" id="meta-gpio-12"  class="container"><span p class="mediumbold">LED on/off</span></input> <span class="checkmark"></span>
+</label>
+</div>
+
+<script type="text/javascript">
+onLoad(function() {
+  //bnd($("#meta-gpio-05"), "click", ledControl05);
+  bnd($("#meta-gpio-12"), "click", ledControl12);
+});
+</script>
+
+
+
+</body>
+</html>

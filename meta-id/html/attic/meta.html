@@ -1,0 +1,80 @@
+<div id=menu>
+	<ul>
+		<li>Meta</li>
+		<li><a href="text/text.html">Text</a></li>
+		<li><a href="wifi/wifiAp.html">Wifi AP</a></li>
+		<li><a href="wifi/wifiSta.html">Wifi Client</a></li>
+		<li><a href="web-server.html">Upload</a></li>
+	</ul>
+</div>
+<div class="square-box">
+<div class="square-content">
+            <h1>META
+            </h1>
+            <div id="spinner" class="spinner" hidden></div>
+<div id="notification" class="spinner" hidden></div>
+<div id="warning" class="spinner" hidden></div>
+<div id="meta-spinner" class="spinner" hidden></div>
+
+<!--            <div id="wav">
+              <div class="pure-form-stacked">
+				  <a href='meta.wav'>soundtest</a>
+				  <audio controls>
+					  <source src="meta.wav" type="audio/wav"/>
+					  no audio tag support in your browser !
+				  </audio>
+			  </div>
+			</div>-->
+            <div id="gpio">
+              <div class="pure-form-stacked">
+                <label>GPIO 0</label>
+                <div id="meta-gpio-00"></div>
+                <label>GPIO 1</label>
+                <div id="meta-gpio-01"></div>
+                <label>GPIO 2</label>
+                <div id="meta-gpio-02"></div>
+                <label>GPIO 3</label>
+                <div id="meta-gpio-03"></div>
+                <label>GPIO 4</label>
+                <div id="meta-gpio-04"></div>
+                <label>GPIO 5</label>
+                <div id="meta-gpio-05"></div>
+<!--                <label>GPIO 6</label>
+                <div id="meta-gpio-06"></div>
+                <label>GPIO 7</label>
+                <div id="meta-gpio-07"></div>
+                <label>GPIO 8</label>
+                <div id="meta-gpio-08"></div>-->
+                <label>GPIO 9</label>
+                <div id="meta-gpio-09"></div>
+                <label>GPIO 10</label>
+                <div id="meta-gpio-10"></div>
+<!--                <label>GPIO 11</label>
+                <div id="meta-gpio-11"></div>-->
+                <label>GPIO 12</label>
+                <div id="meta-gpio-12"></div>
+                <label>GPIO 13</label>
+                <div id="meta-gpio-13"></div>
+                <label>GPIO 14</label>
+                <div id="meta-gpio-14"></div>
+                <label>GPIO 15</label>
+                <div id="meta-gpio-15"></div>
+			<br/><br/>
+              </div>
+		</div>
+</div>
+<script src="meta.js">
+</script>
+<script type="text/javascript">
+function toggle(el){
+	del=$("#"+el);
+	if (del.visibility != 'hidden')
+		del.visibility != 'hidden';
+	else
+	del.visibility = 'visible';
+}
+onLoad(function() {
+  fetchMeta();
+});
+</script>
+</body></html>

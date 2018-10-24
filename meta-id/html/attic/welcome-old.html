@@ -1,0 +1,38 @@
+<div id=menu>
+	<ul>
+		<li>Meta</li>
+		<li><a href="/wifi/wifiSta.html">Wifi</a></li>
+		<li><a href="/text/text.html">Text</a></li>
+		<li><a href="/meta.html">GPIO</a></li>
+	</ul>
+</div>
+<div class="square-box">
+<div class="square-content">
+<h1>WELCOME
+</h1>
+<i> public content goes here</i><br/><br/>
+<form><button id="special-button" type="submit" class="pure-button button-primary">send data</button></form>
+<br/><br/>
+
+<a href="http://x.ikujam.org/mqtt/"> see data</a>
+<br/><br/><div id="sendfeedback"></div>
+</div>
+</div>
+<script type="text/javascript">
+
+function displaySend(data){
+	$("#sendfeedback").innerHTML=data;
+	
+	}
+
+function submitData(e){  
+	e.preventDefault();
+	ajaxJson("GET", "/meta/sand", displaySend, function () {
+  });
+}
+onLoad(function() {
+  bnd($("#special-button"), "click", submitData);
+});
+</script>
+
+</body></html>
